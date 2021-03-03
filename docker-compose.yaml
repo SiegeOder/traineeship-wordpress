@@ -1,0 +1,43 @@
+version: '3.9'
+services:
+
+  wordpress:
+    image: wordpress:5.6.2-php8.0-fpm-alpine
+    container_name: wpc
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_NAME: wpdb
+      WORDPRESS_DB_USER: wpuser
+      WORDPRESS_DB_PASSWORD: wppass
+    volumes:
+      - ./wordpress:/var/www/html
+
+  database:
+    image: mysql:8.0.23
+    container_name: dbc
+    restart: always
+    depends_on:
+      - wordpress
+    environment:
+      MYSQL_DATABASE: wpdb
+      MYSQL_USER: wpuser
+      MYSQL_PASSWORD: wppass
+      MYSQL_ROOT_PASSWORD: wprootpass
+    volumes:
+      - database:/var/lib/mysql
+
+  web:
+    image: nginx:1.19.7-alpine
+    container_name: webc
+    restart: always
+    depends_on:
+      - wordpress
+    ports:
+      - 8080:80
+    volumes:
+      - ./nginx-conf:/etc/nginx/conf.d
+      - ./wordpress:/var/www/html
+
+volumes:
+  database:
