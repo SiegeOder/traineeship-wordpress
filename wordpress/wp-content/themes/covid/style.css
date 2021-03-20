@@ -1,0 +1,48 @@
+/*
+Theme Name: Covid-19
+Description:  Covid-19 theme.
+Tested at: 8.0
+Version: 0.1
+ */
+
+*{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.15rem;
+}
+
+.font-weight-600{
+    font-weight: 600;
+}
+.slide{
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 100vw;
+    background-position: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.background-image-1 {
+    background-image: url("/wp-content/themes/covid/assets/images/slide1.png");
+}
+
+.background-image-2 {
+    background-image: url("/wp-content/themes/covid/assets/images/slide2.png");
+}
+
+.background-image-3 {
+    background-image: url("/wp-content/themes/covid/assets/images/slide3.png");
+}
+
+.background-image-4 {
+    background-image: url("/wp-content/themes/covid/assets/images/slide4.png");
+}
+
+.background-image-5 {
+    background-image: url("/wp-content/themes/covid/assets/images/slide5.png");
+}
+
+.background-image-6 {
+    background-image: url("/wp-content/themes/covid/assets/images/slide6.png");
+}

@@ -33,11 +33,14 @@ services:
     restart: always
     depends_on:
       - wordpress
+    expose:
+      - 80
+      - 587
     ports:
       - 8080:80
     volumes:
       - ./nginx-conf:/etc/nginx/conf.d
       - ./wordpress:/var/www/html
-
+  
 volumes:
   database:
